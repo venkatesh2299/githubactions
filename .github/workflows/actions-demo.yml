@@ -1,21 +1,12 @@
 name: GitHub Actions Demo
 
-on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Enter the name'
-        required: true
-        default: 'GitHub User'
-      deploy:
-        description: 'Deploy code after build (yes/no)'
-        required: false
-        default: 'yes'
+on: push
+ 
 
 jobs:
   Example-Actions-Job:
     name: Exploring GitHub Actions
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Name - ${{ github.event.inputs.name }}"
       - run: echo "Deploy code - ${{ github.event.inputs.deploy }}"
